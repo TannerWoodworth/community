@@ -1,0 +1,42 @@
+/*Clearfix Sylings*/
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+/*=========== TYPOGRAPHY ===========*/
+
+a{
+   color:#c22; 
+}
+a:visited{
+ color:; 
+}
+a:hover{
+  color:; 
+}
+a:focus{
+  color:; 
+}
+a:active{
+  color:; 
+}
+
+/*============= CLASSES ============*/
+contact_name{
+    color:#666;
+}
+.contact_type{
+    color:#888;
+}
+
+
+/*============ CLEARFIX ============*/
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
