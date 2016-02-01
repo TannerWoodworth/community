@@ -1,4 +1,44 @@
-/*Clearfix Sylings*/
+/*============ SEMANTIC ============*/
+body{
+  font-family: 'Lato', sans-serif;
+  color:#888;
+  line-height: 1.4;
+}
+.contact_card{
+  display: block;
+  margin-bottom: 1rem;
+}
+/*=========== TYPOGRAPHY ===========*/
+p{
+  margin:.25em 0;
+  color:#666;
+}
+a{
+   color:#c22;
+}
+a:visited{
+ color:#555;
+}
+a:hover{
+  color:#333;
+}
+a:focus{
+  color:#b61e1e;
+}
+a:active{
+  color:#b61e1e;
+}
+.contact_name{
+    color:#666;
+    font-weight: bold;
+}
+.contact_type{
+    color:#888;
+}
+/*============= CLASSES ============*/
+
+
+/*============ CLEARFIX ============*/
 .clearfix:after {
      visibility: hidden;
      display: block;
@@ -7,34 +47,6 @@
      clear: both;
      height: 0;
      }
-/*=========== TYPOGRAPHY ===========*/
-
-a{
-   color:#c22; 
-}
-a:visited{
- color:; 
-}
-a:hover{
-  color:; 
-}
-a:focus{
-  color:; 
-}
-a:active{
-  color:; 
-}
-
-/*============= CLASSES ============*/
-contact_name{
-    color:#666;
-}
-.contact_type{
-    color:#888;
-}
-
-
-/*============ CLEARFIX ============*/
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
