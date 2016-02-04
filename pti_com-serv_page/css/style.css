@@ -1,0 +1,121 @@
+@charset "utf-8";
+/**Standard HTML Tags Go Here**/
+/*=========== TYPOGRAPHY ===========*/
+p{
+  margin:.25em 0;
+  color:#666;
+}
+a{
+   color:#c22;
+   text-decoration: none;
+}
+a:visited{
+ color:#555;
+}
+a:hover{
+  color:#333;
+}
+a:focus{
+  color:#b61e1e;
+}
+a:active{
+  color:#b61e1e;
+}
+
+/*=========== TYPOGRAPHY ===========*/
+
+
+
+/**Standard HTML Tags End Here**/
+/*=========== TYPOGRAPHY ===========*/
+/**Classes Go Here**/
+.contact_name{
+    color:#666;
+    font-weight: bold;
+}
+.contact_type{
+    color:#888;
+}
+/*=========== TYPOGRAPHY ===========*/
+.contact_card{
+    display: block;
+    margin: 2rem 0 1rem 0;
+}
+.contact_card h2{
+    margin-bottom: 0;
+}
+.calendar h2{
+    margin: 1em 0 0 0;
+}
+/**Classes End Here**/
+
+
+/**ID's Go Here**/
+#page-wrapper{
+    display: block;
+    width: 100%;
+}
+#content-wrapper{
+    width: 96%;
+    padding: 0 2%;
+    margin: 1em auto;
+    max-width: 534px;
+}
+#content-wrapper h1{
+    margin-bottom: 0;
+}
+/**ID's End Here**/
+
+
+@media screen and (min-width:450px) {
+    #content-wrapper{
+        width:90%;
+    }
+}
+@media screen and (min-width:650px) {
+    #content-wrapper{
+        width:80%;
+    }
+}
+/**Media Queries End Here**/
+
+/**The following code is the 'group' code
+   which has replaced the 'clearfix' code
+   in the web community. Apply it as a class**/
+  
+.group:after {
+	visibility: hidden;
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+	}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */ 
+   
+/**End the 'group' code**/
+
+/**The following code is the 'clearfix' code
+   which was replaced by the 'group' code
+   in the web community. The effects are the
+   same but just different terminology. Uncomment 
+   the code to use it**/
+   
+/*.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; }*/ /* IE6 */
+/**:first-child+html .clearfix { zoom: 1; }*/ /* IE7 */
+   
+/**End the 'clearfix' code**/
+
+
+
+
+/* Copyright Senior Project Team A 2015. All Rights Reserved. */
+
