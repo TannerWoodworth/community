@@ -38,6 +38,52 @@ $page_title="Add Student";
         //VALIDATE INPUT: If the users inputs incorrect data, provide feedback and do not add the row to the table.
         
         //ENTER VALIDATION CODE HERE
+		if(empty($_POST['ustud_name'])){
+			$all_valid = false;//prevents it from adding row
+			//arrange for error feedback
+			$stud_nameError='You must enter the student''s name.';
+		}else{
+			//what they typed was okay, store it in the form
+			$newStud_name=$_POST['ustud_name'];
+		}
+		
+		
+		if(empty($_POST['uprog_id'])){
+			$all_valid = false;//prevents it from adding row
+			//arrange for error feedback
+			$prog_idError='You must select the program the student is in.';
+		}else{
+			//what they typed was okay, store it in the form
+			$newProg_id=$_POST['uprog_id'];
+		}
+		
+		if(empty($_POST['uquarter'])){
+			$all_valid = false;//prevents it from adding row
+			//arrange for error feedback
+			$quarterError='You must select what quarter the student is in.';
+		}else{
+			//what they typed was okay, store it in the form
+			$newQuarter=$_POST['uquarter'];
+		}
+		
+		if(empty($_POST['uaward'])){
+			$all_valid = false;//prevents it from adding row
+			//arrange for error feedback
+			$awardError='You must select the award status for the student.';
+		}else{
+			//what they typed was okay, store it in the form
+			$newAward=$_POST['uaward'];
+		}
+		
+		if(empty($_POST['udescription'])){
+			$all_valid = false;//prevents it from adding row
+			//arrange for error feedback
+			$descriptionError='You must write a short description of the student''s accomplishments.';
+		}else{
+			//what they typed was okay, store it in the form
+			$newDescription=$_POST['udescription'];
+		}
+		
         
         //END VALIDATION
         
