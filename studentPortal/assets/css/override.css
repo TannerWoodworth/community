@@ -1,0 +1,44 @@
+.site-header{
+	background-color: #000;
+	background-image: none;
+}
+
+.site-header .header-top{
+	background: none;
+}
+
+.header-title{
+	color: #fff;
+	font-size: 56px;
+	text-align: right;
+	margin-top: 40px;
+	margin-bottom: 0px;
+	clear: both;
+}
+
+
+.site-footer{
+	background: #303030;
+	color: #fff;
+}
+
+.site-footer p, .site-footer a{
+	color: #fff;
+}
+.site-footer h3{
+	color: #959595;
+}
+
+.nav-divider{
+	height: 5px;
+	background-color: #585858;
+}
+
+.nav-divide-highlight{
+	background-color: #c22;
+	height: 5px;
+}
+
+.condensed-nav .menu{
+	padding-top: 0px;
+}
