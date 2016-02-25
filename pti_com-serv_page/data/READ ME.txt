@@ -1,4 +1,0 @@
-The data folder most likely won't be used in this preset because this preset 
-doesn't use object oriented code or a database. However, there may be unforseen
-circumstances on my part so I included the data folder. Delete it if you don't
-need or use it.
