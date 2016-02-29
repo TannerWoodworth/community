@@ -1,21 +1,25 @@
 /*============ SEMANTIC ============*/
 body{
-  font-family: 'Lato', sans-serif;
-  color:#888;
-  line-height: 1.4;
-max-width:536px;
-    
+    font-family: 'Lato', sans-serif;
+    color:#888;
+    line-height: 1.4;
+    width: 100%
 }
 h1{
     margin-top:0;
     
 }
+.content_div{
+    width:96%;
+    padding: 0 2%;
+    margin: 0 auto;
+    max-width:536px;
+}
 .contact_card{
-  display: block;
-    width:50%;
-    float:left;
-    
-  margin-bottom: 1rem;
+    display: block;
+    width:100%;
+    float:none;
+    margin-bottom: 1rem;
 }
 /*=========== TYPOGRAPHY ===========*/
 p{
@@ -45,9 +49,52 @@ a:active{
 .contact_type{
     color:#888;
 }
+.tables{
+    margin-bottom: 2em;
+    width:96%;
+}
+.sect_title{
+    
+}
+.s_img_box{
+    float:none;
+    width: 100%;
+}
+.s_img_box img{
+    width:100%;
+    max-height: 250px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+.s_sum h3, .s_sum h4, .s_sum h5{
+    margin: 0;
+}
 /*============= CLASSES ============*/
-
-
+@media screen and (min-width:450px) {
+.contact_card {
+    display: block;
+    width: 50%;
+    float: left;
+    margin-bottom: 1rem;
+}
+}
+@media screen and (min-width:500px) {
+.s_img_box{
+    float:left;
+    width: 48%;
+    margin-right: 4%;
+}
+.s_sum{
+    float:left;
+    width: 48%;
+}
+.s_name{
+    margin-top:0;
+}
+.s_bio_box{
+    clear:both;   
+}
+}
 /*============ CLEARFIX ============*/
 .clearfix:after {
      visibility: hidden;
