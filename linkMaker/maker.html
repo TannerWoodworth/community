@@ -1,0 +1,42 @@
+<style>
+  .ex{
+    color:#666;
+  }
+  #linkOutput{
+    font-family: monospace;
+    background-color: #eee;
+    padding: .5em;
+  }
+</style>
+
+<form>
+  <p>Link Text: <span class="ex">Ex: PTI Carnival</span></p>
+  <input id="linkText" type="text" name="linktext">
+  <br />
+  <p>Link: <span class="ex">Ex: http://pti.edu</span></p>
+  <input id="link" type="text" name="link">
+
+  <input id="submitLink" type="submit" value="Create Link">
+</form>
+
+<p>Copy the code below and paste it to create a link</p>
+<div id="linkOutput">
+  <p>dummy text</p>
+</div>
+
+<script>
+var link;
+var linkText;
+document.getElementById("submitLink").onclick = function(){
+  makeLink();
+  //prevent page refresh
+  return false;
+}
+
+function makeLink() {
+  link = document.getElementById("link").value;
+  linkText = document.getElementById("linkText").value;
+  console.log(link);
+  console.log(linkText);
+}
+</script>
