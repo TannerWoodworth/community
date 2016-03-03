@@ -7,7 +7,10 @@ body{
 }
 h1{
     margin-top:0;
-    
+    color:#222;
+}
+h2{
+    color:#222;
 }
 .content_div{
     width:96%;
@@ -68,6 +71,9 @@ a:active{
 }
 .s_sum h3, .s_sum h4, .s_sum h5{
     margin: 0;
+}
+.s_award{
+    padding-bottom: 1%;
 }
 /*============= CLASSES ============*/
 @media screen and (min-width:450px) {
