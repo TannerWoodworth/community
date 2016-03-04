@@ -25,18 +25,28 @@
 </div>
 
 <script>
-var link;
-var linkText;
+var linkText,
+    link,
+    concatLink;
 document.getElementById("submitLink").onclick = function(){
   makeLink();
   //prevent page refresh
   return false;
 }
-
 function makeLink() {
+  //grab values
   link = document.getElementById("link").value;
   linkText = document.getElementById("linkText").value;
-  console.log(link);
-  console.log(linkText);
+  if(strpos(link, 'http://') !== false){
+    console.log("http!");
+  }else {
+    console.log("https!");
+    return false;
+  };
+
+  //concat link
+  concatLink = "&lta href=\""+link+"\" target=\"_blank\"&gt"+linkText+"&lt/a&gt"
+  //place text
+  document.getElementById("linkOutput").innerHTML = concatLink;
 }
 </script>
