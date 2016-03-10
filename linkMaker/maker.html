@@ -21,12 +21,13 @@
 
 <p>Copy the code below and paste it to create a link</p>
 <div id="linkOutput">
-  <p>dummy text</p>
+  <p></p>
 </div>
 
 <script>
-var link;
-var linkText;
+var link,
+    linkText,
+    concatOutput;
 document.getElementById("submitLink").onclick = function(){
   makeLink();
   //prevent page refresh
@@ -36,7 +37,9 @@ document.getElementById("submitLink").onclick = function(){
 function makeLink() {
   link = document.getElementById("link").value;
   linkText = document.getElementById("linkText").value;
+  concatOutput = "&lt;a href=\""+link+"\" target=\"_blank\"&gt;"+linkText+"&lt;/a&gt;"
   console.log(link);
   console.log(linkText);
+  document.getElementById('linkOutput').innerHTML=concatOutput
 }
 </script>
