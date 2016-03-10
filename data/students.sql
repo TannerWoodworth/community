@@ -66,15 +66,16 @@ CREATE TABLE student_table (
   image varchar(100),
   quarter enum('1st','2nd','3rd','4th','5th','6th','7th','8th'),
   description text,
-  award enum('Nominee','Winner','Honorable-Mention'),
+  award enum('Nominee','Winner','Honorable Mention'),
   FOREIGN KEY (prog_id) REFERENCES program_table(prog_id)
 ) ENGINE=InnoDB, AUTO_INCREMENT=1;
 
 INSERT INTO student_table
 	(stud_id, prog_id, stud_name, image, quarter, description, award)
 	VALUES 
-	(null,15,'Dennis Cupp','test.image', '4th', 'I''m Freaking Awesome!','Winner'),
-	(null,6,'Suzzie Que','test.image', '1st', 'I''m Less Awesome than Dennis!','Nominee');
+	(null,15,'Dennis Cupp','Default.png', '4th', 'I''m Freaking Awesome!','Winner'),
+	(null,6,'Suzzie Que','Default.png', '1st', 'I''m Less Awesome than Dennis!','Nominee'),
+    (null,11,'Jimmy James','Default.png','5th','I tried my best!','Honorable Mention');
 
 CREATE TABLE service_table (
 	serv_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

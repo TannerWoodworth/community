@@ -3,9 +3,9 @@
   class Database {
 	//properties every database has: proper credentials
     private $host = 'localhost';
-	private $db_name = 'stuentdb';
+	private $db_name = 'studentdb';
 	private $username = 'root';
-	private $password = 'root';
+	private $password = '';
 	public $conn;
 
     /**
