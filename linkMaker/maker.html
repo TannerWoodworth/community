@@ -1,34 +1,70 @@
+<head>
+ <title>Link Creator</title>
+ <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
 <style>
   .ex{
     color:#666;
   }
   #linkOutput{
     font-family: monospace;
-    background-color: #eee;
+    background-color: #efefef;
+    font-size: 1em;
     padding: .5em;
+    width:50%;
+    color: #333333;
+  }
+  input[type=text]{
+    padding: .5em;  
+    font-size: 1em;
+    border-radius: 2px;
+    border: solid 1px #666666;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 1em;
+  }
+  input[type=submit] {
+    padding: .5em;  
+    font-size: 1em;
+    border-radius: 2px;
+    border: none;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    background-color: #c22;
+    border: solid 1px #c22;
+  }
+  input[type=submit]:hover{
+    cursor: pointer;
+    background-color: #922;
+    border: solid 1px #922;
   }
 </style>
+<body>
+  <h1>Link Creator</h1>
+  <h2>Generate HTML Links</h2>
+  <form>
+    <p>Link Text: <span class="ex">Ex: PTI Carnival</span></p>
+    <input id="linkText" type="text" name="linktext">
+    <br />
+    <p>Link: <span class="ex">Ex: http://pti.edu</span></p>
+    <input id="link" type="text" name="link">
 
-<form>
-  <p>Link Text: <span class="ex">Ex: PTI Carnival</span></p>
-  <input id="linkText" type="text" name="linktext">
-  <br />
-  <p>Link: <span class="ex">Ex: http://pti.edu</span></p>
-  <input id="link" type="text" name="link">
+    <input id="submitLink" type="submit" value="Create Link">
+  </form>
 
-  <input id="submitLink" type="submit" value="Create Link">
-</form>
-
-<p>Copy the code below and paste it to create a link</p>
-<div id="linkOutput">
-  <p></p>
-</div>
-
+  <p>Copy the code below and paste it to create a link</p>
+  <div id="linkOutput">
+  </div>
+  <p>The link will appear like this:</p>
+  <div id="linkPreview">
+  </div>
+</body>
 <script>
 var link,
     linkText,
     prefix = "http",
+    realLink,
     concatOutput;
+
 document.getElementById("submitLink").onclick = function(){
   makeLink();
   console.log(prefix.indexOf(link));
@@ -40,6 +76,8 @@ function makeLink() {
   link = document.getElementById("link").value;
   linkText = document.getElementById("linkText").value;
   concatOutput = "&lt;a href=\""+link+"\" target=\"_blank\"&gt;"+linkText+"&lt;/a&gt;"
-  document.getElementById('linkOutput').innerHTML=concatOutput
+  document.getElementById('linkOutput').innerHTML=concatOutput;
+  realLink= "<a href=\""+link+"\" target=\"_blank\">"+linkText+"</a>";
+  document.getElementById('linkPreview').innerHTML=realLink;
 }
 </script>
