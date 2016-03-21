@@ -27,7 +27,6 @@ include_once('includes/header.php');
     $newDescription='';
     $descriptionError='';
     $newImage='';
-    $imageError='';
 
     //IF FORM HAS BEEN SUBMITTED...
     if($_POST) {
@@ -36,6 +35,51 @@ include_once('includes/header.php');
         //VALIDATE INPUT: If the users inputs incorrect data, provide feedback and do not add the row to the table.
         
         //ENTER VALIDATION CODE HERE
+        
+            if(empty($_POST['ustud_name'])){
+                $all_valid = false; //prevents it from adding row
+                //arrange for error feedback
+                $stud_nameError='You must enter a name for the student.';
+            }else{
+                //what they typed was okay, so store it to show it in the form
+                $newStud_name=$_POST['ustud_name'];
+            }
+        
+            if(empty($_POST['uprog_id'])){
+                $all_valid = false; //prevents it from adding row
+                //arrange for error feedback
+                $prog_idError='You must select what program the student is in.';
+            }else{
+                //what they typed was okay, so store it to show it in the form
+                $newProg_id=$_POST['uprog_id'];
+            }
+        
+            if(empty($_POST['uaward'])){
+                $all_valid = false; //prevents it from adding row
+                //arrange for error feedback
+                $awardError='You must select an award status for the student.';
+            }else{
+                //what they typed was okay, so store it to show it in the form
+                $newAward=$_POST['uaward'];
+            }
+        
+            if(empty($_POST['uquarter'])){
+                $all_valid = false; //prevents it from adding row
+                //arrange for error feedback
+                $quarterError='You must enter what quarter the student is in.';
+            }else{
+                //what they typed was okay, so store it to show it in the form
+                $newQuarter=$_POST['uquarter'];
+            }
+        
+            if(empty($_POST['udescription'])){
+                $all_valid = false; //prevents it from adding row
+                //arrange for error feedback
+                $decriptionError='You must enter a description for the student';
+            }else{
+                //what they typed was okay, so store it to show it in the form
+                $newDescription=$_POST['udescription'];
+            }
         
         //END VALIDATION
         
@@ -49,7 +93,7 @@ include_once('includes/header.php');
             //make it connect:
             $conn=$database->getConnection();
             // instantiate a new student object
-            $student = new $Student($conn);
+            $student = new Student($conn);
             //store in the object's properties what the user typed in the form.
             $student->stud_name = $_POST['ustud_name'];
             $student->prog_id = $_POST['uprog_id'];
@@ -86,7 +130,7 @@ include_once('includes/header.php');
                 </div>
 <!--				<input type="text" name="uaward" value="<?php // echo $newAward; ?>" id="award_id" placeholder="Award"/>-->
               <select name="uaward">
-                <option value="Winner">Award Recipient</option>
+                <option value="Award Recipient">Award Recipient</option>
                 <option value="Nominee">Nominee</option>
                 <option value="Honorable Mention">Honorable Mention</option>
               </select>
@@ -158,9 +202,6 @@ include_once('includes/header.php');
                 </div>
               <label for="image_id">Image of Student:</label>
               <input type="file" name="uimage" value="<?php echo $newImage; ?>" id="image_id">
-              <div class="section">
-                    <span class="danger">*<?php echo $imageError;?></span>
-                </div>
               <div class="four columns mobile-one" id="final-section">
 							<input type="submit" value="Submit" />
               </div>

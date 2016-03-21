@@ -1,5 +1,15 @@
 <!doctype html>
 <html>
+<?php 
+    include('config/database.php');
+    include('object/student.php');
+    //make a database object:
+    $database = new Database();
+    //make it connect:
+    $conn=$database->getConnection();
+    // instantiate a new student object
+    $student = new Student($conn);
+?>
 
 <head>
     <meta charset="utf-8">
@@ -23,7 +33,7 @@
                     <!-- Echo Section Title Here -->
                     <h2 class="sect_title">Awards</h2>
                     <?php
-                        $stmt = $student->displayStudent('Winner');
+                        $stmt = $student->displayStudentAward('Award Recipient');
                         //retrieve all students who are a nominee
                         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
@@ -34,13 +44,15 @@
                     </div>
                     <div class="s_sum">
                         <!-- Echo Student Name Here -->
-                        <h3 class="s_name"><?php echo $row['stud_name']; ?> //Student Name</h3>
+                        <h3 class="s_name"><?php echo $row['stud_name']; ?> </h3>
                         <!-- Echo Student Award Here -->
-                        <h4 class="s_award"><?php echo $row['award']; ?> //Award Given</h4>
+                        <h4 class="s_award"><?php echo $row['award']; ?></h4>
+                         <!-- Echo Student School here-->
+                        <h5 class="s_school">School: <?php echo $row['school_name']; ?></h5>
                         <!-- Echo Student Program Here -->
-                        <h5 class="s_program"><?php echo $row['prog_name']; ?> //Student Program</h5>
+                        <h5 class="s_program"><?php echo $row['prog_name']; ?> //</h5>
                         <!-- Echo Student Program Here -->
-                        <h5 class="s_quarter"><?php echo $row['quarter']; ?> //Student Quarter</h5>
+                        <h5 class="s_quarter"><?php echo $row['quarter']; ?></h5>
                     </div>
                     </section>
                     <div class="s_bio_box">
