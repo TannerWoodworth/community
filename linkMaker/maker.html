@@ -27,9 +27,11 @@
 <script>
 var link,
     linkText,
+    prefix = "http",
     concatOutput;
 document.getElementById("submitLink").onclick = function(){
   makeLink();
+  console.log(prefix.indexOf(link));
   //prevent page refresh
   return false;
 }
