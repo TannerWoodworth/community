@@ -49,7 +49,7 @@ include_once('includes/header.php');
             //make it connect:
             $conn=$database->getConnection();
             // instantiate a new student object
-            $student = new $student($conn);
+            $student = new $Student($conn);
             //store in the object's properties what the user typed in the form.
             $student->stud_name = $_POST['ustud_name'];
             $student->prog_id = $_POST['uprog_id'];
@@ -86,44 +86,65 @@ include_once('includes/header.php');
                 </div>
 <!--				<input type="text" name="uaward" value="<?php // echo $newAward; ?>" id="award_id" placeholder="Award"/>-->
               <select name="uaward">
+                <option value="Winner">Award Recipient</option>
                 <option value="Nominee">Nominee</option>
-                <option value="Winner">Winner</option>
                 <option value="Honorable Mention">Honorable Mention</option>
               </select>
               <div class="section">
                 <span class="danger"><?php echo $awardError; ?></span>
               </div>
 <!--                <input type="text" name="uprog_id" value="<?php echo $newProg_id; ?>" id="prog_id_id" placeholder="Program"/>--><!-- Adams original -->
-              <select name="uprog_id">
-                            <option value=1>HVAC Technology</option>
-                            <option value=2>Welding Technology</option>
-                            <option value=3>Accounting</option>
-                            <option value=4>Management</option>
-                            <option value=5>Criminal Justice</option>
-                            <option value=6>Culinary Arts</option>
-                            <option value=7>Hospitality Management Administration</option>
-                            <option value=8>Hotel &amp; Restaurant Management</option>
-                            <option value=9>Travel &amp; Tourism Management</option>
-                            <option value=10>Computer Aided Drafting</option>
-                            <option value=11>Architectural Drafting</option>
-                            <option value=12>Mechanical Drafing</option>
-                            <option value=13>Graphic Design</option>
-                            <option value=14>Video Production</option>
-                            <option value=15>Web Design/Development</option>
-                            <option value=16>Medical Assisting</option>
-                            <option value=17>Medical Coding</option>
-                            <option value=18>Medical Office Administration</option>
-                            <option value=19>Surgical Technology</option>
-                            <option value=20>Therapeutic Massage Practitioner</option>
-                            <option value=21>Practical Nursing</option>
-                            <option value=22>Computer Programming</option>
-                            <option value=23>Information Technology</option>
-                            <option value=24>Network Administration</option>
-                            <option value=25>Network Security &amp; Computer Forensics</option>
-                            <option value=26>Electronics Engineering Technology</option>
-                            <option value=27>Oil &amp; Gas Electronics</option>
-                            <option value=28>Smart Building Technology</option>
-                        </select>
+              <select name="choose_a_pti_program" class="no-custom" id="freeform_choose_a_pti_program"><option value="uprog_id">Please Select a Program</option><optgroup label="School of Trades Technology">
+<option value="1">HVAC Technology</option>
+<option value="2">Welding Technology</option>
+</optgroup>
+<optgroup label="School of Business">
+<option value="3">Accounting</option>
+<option value="4">Management</option>
+</optgroup>
+<optgroup label="School of Criminal Justice">
+<option value="5">Criminal Justice</option>
+</optgroup>
+<optgroup label="School of Hospitality and Culinary Arts">
+<option value="6">Culinary Arts</option>
+<option value="Hospitality Management Administration">Hospitality Management Administration</option>
+</optgroup>
+<optgroup label="School of Design">
+<option value="7">Computer Aided Drafting - CAD</option>
+<option value="8">Graphic Design</option>
+<option value="9">Multimedia Technologies</option>
+</optgroup>
+<optgroup label="School of Healthcare">
+<option value="10">Medical Assisting</option>
+<option value="11">Medical Coding</option>
+<option value="12">Medical Office Administration</option>
+<option value="13">Surgical Technology</option>
+<option value="14">Therapeutic Massage Practitioner</option>
+</optgroup>
+<optgroup label="School of Nursing">
+<option value="15">Practical Nursing</option>
+<option value="16">Associate in Science, Nursing</option>
+</optgroup>
+<optgroup label="School of Information Technology">
+<option value="17">Computer Programming</option>
+<option value="18">Information Technology</option>
+</optgroup>
+<optgroup label="School of Energy and Electronics Technology">
+<option value="19">Electronics Engineering Technology</option>
+<option value="20">Smart Building Technology</option>
+</optgroup>
+<optgroup label="PTI Online">
+<option value="21">Business Administration - Management, Online</option>
+<option value="22">Medical Coding, Online</option>
+<option value="23">Medical Office Administration, Online</option>
+</optgroup>
+<optgroup label="Continuing Education Courses at PTI">
+<option value="24">Diagnostic Coding with ICD-10</option>
+<option value="25">TIPS - Training for Intervention Procedures</option>
+<option value="26">ServSafe Food Safety Certification</option>
+<option value="27">Web Design</option>
+</optgroup><optgroup label="AACA Programs"><option value="28">AACA Certificate in Culinary Arts</option><option value="29">Associate in Culinary Arts</option></optgroup></select>
+              
                 <div class="section">
                     <span class="danger"><?php echo $prog_idError; ?></span>
                 </div>
