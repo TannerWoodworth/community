@@ -62,6 +62,21 @@ class Student {
 			return false;
 	 	}     
      }
+    //This creates a function 'delete'
+		function delete(){
+		//sets a query to equal a sql delete cmd which targets a products Unique Id in that table
+		$query= 'DELETE FROM '.$this->table_name.' WHERE stud_id=	?';
+		//Prepares that query
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(1, $this->stud_id);
+		//try running the query. If it works...
+		if($stmt->execute()){
+		//send 'true' back to where delete() was called
+		return true;
+		}else{
+		return false;	
+		}
+	}
     /**
      * the displayStudents method display all students
      */
@@ -90,4 +105,6 @@ class Student {
          }     
      }
 }
+
+	
 ?>

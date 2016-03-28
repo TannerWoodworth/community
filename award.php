@@ -9,6 +9,20 @@
     $conn=$database->getConnection();
     // instantiate a new student object
     $student = new Student($conn);
+    if(isset($_GET['deleteid'])){
+				//if there is a delete id, it sets the discs Unique ID to it
+				$disc->student_id = $_GET['deleteid'];
+				//Then runs function delete
+				$stmt = $disc->delete();
+				//loop through that variable, repeating a procedure once per row
+				if($disc->delete()){
+					//show pos feedback
+					echo '<p class="success">The student has been deleted from the page.</p>';
+				
+				}else{//otherwise show 'fail' feedback
+					echo '<p class="danger">The student hase NOT been deleted from the page.</p>';
+				}
+			}
 ?>
 
 <head>
