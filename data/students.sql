@@ -73,9 +73,9 @@ CREATE TABLE student_table (
 INSERT INTO student_table
 	(stud_id, prog_id, stud_name, image, quarter, description, award)
 	VALUES 
-	(null,15,'Dennis Cupp','Default.png', '4th', 'I''m Freaking Awesome!','Winner'),
-	(null,6,'Suzzie Que','Default.png', '1st', 'I''m Less Awesome than Dennis!','Nominee'),
-    (null,11,'Jimmy James','Default.png','5th','I tried my best!','Honorable Mention');
+	(null,15,'Dennis Cupp','default-male.jpg', '4th', 'I''m Freaking Awesome!','Winner'),
+	(null,6,'Suzzie Que','default-female.jpg', '1st', 'I''m Less Awesome than Dennis!','Nominee'),
+    (null,11,'Jimmy James','default-male.jpg','5th','I tried my best!','Honorable Mention');
 
 CREATE TABLE service_table (
 	serv_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

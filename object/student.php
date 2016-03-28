@@ -33,7 +33,7 @@ class Student {
         //if the image field is empty
         if(empty($_FILES['image']['name'])){
             //set new image filename to the default jpg
-            $new_image_filename = 'Default.png';
+            $new_image_filename = 'default-male.jpg';
         }else{//if the user selected an image to use
             //give the new image a name
             $new_image_filename = $this->image['name'];
@@ -69,7 +69,7 @@ class Student {
         //if the image field is empty
         if(empty($_FILES['image']['name'])){
             //set new image filename to the default jpg
-            $new_image_filename = 'Default.png';
+            $new_image_filename = 'default-male.png';
         }else{//if the user selected an image to use
             //give the new image a name
             $new_image_filename = $this->image['name'];

@@ -72,12 +72,6 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 <div class="s_bio_box">
 <!-- Echo Student Bio Here -->
 <p class="s_bio"><?php echo $row['description']; ?> 
-
-<!--
-We start with a vision in our heart, and we put it one canvas. Let's give him a friend too. Everybody needs a friend. I was blessed with a very steady hand; and it comes in very handy when you're doing these little delicate things.
-
-You are only limited by your imagination. You have to make those little noises or it won't work. That's a son of a gun of a cloud. Everyone is going to see things differently - and that's the way it should be. It's important to me that you're happy. If there's two big trees invariably sooner or later there's gonna be a little tree.
--->
 </p>
 <div class="edit-disc">
 <!--This creates a Delete Button which links that products delete ID to the button that way when clicked it knows which to delete-->
@@ -172,7 +166,7 @@ You are only limited by your imagination. You have to make those little noises o
 </div>
 </div>
 </section>
-</div> <!-- End /.tables-->
+</div>
 <h2>Contact Information</h2>
 <div class="contact_card">
 
