@@ -124,12 +124,14 @@ include_once('includes/header.php');
       <div class="row">
           <div class="twelve columns mobile-four">
             <p style="color:#000;font-size:1em;">This is where you will add a student's information to be displayed on the page.</p>
+                <label>Student Name:</label>
 				<input type="text" name="ustud_name" value="<?php echo $newStud_name;?>" id="stud_name_id" placeholder="Student Name" />
                 <div class="section">
                     <span class="danger"><?php echo $stud_nameError; ?></span>
                 </div>
 <!--				<input type="text" name="uaward" value="<?php // echo $newAward; ?>" id="award_id" placeholder="Award"/>-->
-              <select name="uaward">
+              <label>Student Type:</label>
+              <select name="uaward" >
                 <option value="Award Recipient">Award Recipient</option>
                 <option value="Nominee">Nominee</option>
                 <option value="Honorable Mention">Honorable Mention</option>
@@ -138,6 +140,7 @@ include_once('includes/header.php');
                 <span class="danger"><?php echo $awardError; ?></span>
               </div>
 <!--                <input type="text" name="uprog_id" value="<?php echo $newProg_id; ?>" id="prog_id_id" placeholder="Program"/>--><!-- Adams original -->
+              <label>Student Program:</label>
               <select name="choose_a_pti_program" class="no-custom" id="freeform_choose_a_pti_program"><option value="uprog_id">Please Select a Program</option><optgroup label="School of Trades Technology">
 <option value="1">HVAC Technology</option>
 <option value="2">Welding Technology</option>
@@ -192,10 +195,12 @@ include_once('includes/header.php');
                 <div class="section">
                     <span class="danger"><?php echo $prog_idError; ?></span>
                 </div>
+                <label>Student Quarter:</label>
                 <textarea type="text" name="uquarter" value="<?php echo $newQuarter; ?>" id="quarter_id" placeholder="Type Student's Quarter Here" ></textarea>
                 <div class="section">
                     <span class="danger"><?php echo $quarterError; ?></span>
-                </div>   
+                </div>
+                <label>Student Biography:</label>
                 <textarea name="udescription" rows="6" cols="50" value="<?php echo $newDescription; ?>" id="description_id" placeholder="Type Student's Biography Here"></textarea>
 	           <div class="section">
                     <span class="danger"><?php echo $descriptionError; ?></span>

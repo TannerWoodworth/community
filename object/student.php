@@ -62,6 +62,35 @@ class Student {
 			return false;
 	 	}     
      }
+    /**
+     * the update method updates all fields of the selected student record
+     */
+     function update($studentID){
+        //if the image field is empty
+        if(empty($_FILES['image']['name'])){
+            //set new image filename to the default jpg
+            $new_image_filename = 'Default.png';
+        }else{//if the user selected an image to use
+            //give the new image a name
+            $new_image_filename = $this->image['name'];
+            //move the uploaded file (from temp location, to the image folder)
+            move_uploaded_file($this->image['tmp_name'],'img/'.$new_image_filename); 
+        }
+        
+        $query = 'UPDATE student_table SET stud_name = ?, prog_id = ?, quarter = ?, award = ?, description = ?, image = ? WHERE stud_id = '.$studentID;
+        $u_stmt = $this->conn->prepare($query);
+        
+        //fill each question mark with a value the user typed (we stored in property)
+        $u_stmt->bindParam(1,$this->stud_name);
+        $u_stmt->bindParam(2,$this->prog_id);
+        $u_stmt->bindParam(3,$this->quarter);
+        $u_stmt->bindParam(4,$this->award);
+		$u_stmt->bindParam(5,$this->description);
+        $u_stmt->bindParam(6,$new_image_filename);
+
+        $u_stmt->execute();
+        return $u_stmt;
+     }
     //This creates a function 'delete'
 		function delete(){
 		//sets a query to equal a sql delete cmd which targets a products Unique Id in that table
@@ -80,11 +109,20 @@ class Student {
     /**
      * the displayStudents method display all students
      */
-     function displayStudent($award){
+     function displayStudentAward($award){
          $query = 'SELECT stud.stud_id, stud.stud_name, stud.image, school.school_name, p.prog_name, stud.quarter, stud.award, stud.description FROM student_table AS stud INNER JOIN program_table AS p ON stud.prog_id = p.prog_id INNER JOIN school_table AS school ON p.school_id = school.school_id WHERE award = "'.$award.'"';
          $stmt = $this->conn->prepare($query);
          $stmt->execute();
          return $stmt;
+     }
+    /**
+     * the displayStudentInfo method displays a specific student's information
+     */
+     function displayStudentInfo($studentID){
+         $query = 'SELECT stud.stud_id, stud.stud_name, stud.image, school.school_name, p.prog_id, p.prog_name, stud.quarter, stud.award, stud.description FROM student_table AS stud INNER JOIN program_table AS p ON stud.prog_id = p.prog_id INNER JOIN school_table AS school ON p.school_id = school.school_id WHERE stud_id = "'.$studentID.'"';
+         $stud_stmt = $this->conn->prepare($query);
+         $stud_stmt->execute();
+         return $stud_stmt;
      }
     
     /**
