@@ -122,6 +122,7 @@ We start with a vision in our heart, and we put it one canvas. Let's give him a 
 You are only limited by your imagination. You have to make those little noises or it won't work. That's a son of a gun of a cloud. Everyone is going to see things differently - and that's the way it should be. It's important to me that you're happy. If there's two big trees invariably sooner or later there's gonna be a little tree.
 -->
 </p>
+</div>
 <div class="edit-disc">
 <!--This creates a Delete Button which links that products delete ID to the button that way when clicked it knows which to delete-->
 <a alt="Delete Disc" href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);//Refers to the page its on ?>?deleteid=<?php echo $row['stud_id']?>">
@@ -132,8 +133,6 @@ You are only limited by your imagination. You have to make those little noises o
 //close Nominee while looop
 }
 ?>
-</div>
-</div>
 </section>
 <section class="tables">
 <div id="m_students">
@@ -167,6 +166,9 @@ You are only limited by your imagination. You have to make those little noises o
 </div>
 </section>
 </div>
+</section>
+</div>
+
 <h2>Contact Information</h2>
 <div class="contact_card">
 
@@ -180,7 +182,6 @@ You are only limited by your imagination. You have to make those little noises o
 <p><span class="contact_type">Email: </span><a href="mailto:gnoth.melissa@pti.edu">gnoth.melissa@pti.edu</a></p>
 <p><span class="contact_type">Phone: </span>412.809.5257</p>
 <p><span class="contact_type">Cell: </span>412.809.5121</p>
-</div>
 </div>
 </body>
 
