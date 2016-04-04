@@ -1,115 +1,101 @@
-DROP DATABASE IF EXISTS studentdb;
-CREATE DATABASE IF NOT EXISTS studentdb;
-USE studentdb;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-CREATE TABLE school_table(
-	school_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	school_name varchar(60)
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-INSERT INTO school_table
-	VALUES
-	(null,'Trades Technology'),
-	(null,'Business'),
-	(null,'Criminal Justince'),
-	(null,'Hospitality & Culinary Arts'),
-	(null,'Design'),
-	(null,'Healthcare'),
-	(null,'Nursing'),
-	(null,'Information Technology'),
-	(null,'Energy & Electronics Technology');
-	
+CREATE DATABASE IF NOT EXISTS `studentdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `studentdb`;
 
-CREATE TABLE program_table(
-	prog_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	prog_name varchar(40),
-	school_id INT NOT NULL,
-	FOREIGN KEY (school_id) REFERENCES school_table(school_id)
-);
+CREATE TABLE IF NOT EXISTS `program_table` (
+  `prog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `prog_name` varchar(40) DEFAULT NULL,
+  `school_id` int(11) NOT NULL,
+  PRIMARY KEY (`prog_id`),
+  KEY `school_id` (`school_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
-INSERT INTO program_table
-	VALUES
-	(null,'HVAC Technology', 1),
-	(null,'Welding Technology', 1),
-	(null,'Accounting', 2),
-	(null,'Management', 2),
-	(null,'Criminal Justice', 3),
-	(null,'Culinary Arts', 4),
-	(null,'Hospitality Management Administration', 4),
-	(null,'Hotel & Restaurant Management', 4),
-	(null,'Travel & Tourism Management', 4),
-	(null,'Computer Aided Drafting', 5),
-	(null,'Architectural Drafting', 5),
-	(null,'Mechanical Drafting', 5),
-	(null,'Graphic Design', 5),
-	(null,'Video Production', 5),
-	(null,'Web Design/Development', 5),
-	(null,'Medical Assisting', 6),
-	(null,'Medical Coding', 6),
-	(null,'Medical Office Administration', 6),
-	(null,'Surgical Technology', 6),
-	(null,'Therapeutic Massage Practitioner', 6),
-	(null,'Practical Nursing', 7),
-	(null,'Computer Programming', 8),
-	(null,'Information Technology', 8),
-	(null,'Network Administration', 8),
-	(null,'Network Security & Computer Forensics', 8),
-	(null,'Electronics Engineering Technology', 9),
-	(null,'Oil & Gas Electronics', 9),
-	(null,'Smart Building Technology', 9);
-	
+INSERT INTO `program_table` (`prog_id`, `prog_name`, `school_id`) VALUES
+(1, 'HVAC Technology', 1),
+(2, 'Welding Technology', 1),
+(3, 'Accounting', 2),
+(4, 'Management', 2),
+(5, 'Criminal Justice', 3),
+(6, 'Culinary Arts', 4),
+(7, 'Hospitality Management Administration', 4),
+(8, 'Hotel & Restaurant Management', 4),
+(9, 'Travel & Tourism Management', 4),
+(10, 'Computer Aided Drafting', 5),
+(11, 'Architectural Drafting', 5),
+(12, 'Mechanical Drafting', 5),
+(13, 'Graphic Design', 5),
+(14, 'Video Production', 5),
+(15, 'Web Design/Development', 5),
+(16, 'Medical Assisting', 6),
+(17, 'Medical Coding', 6),
+(18, 'Medical Office Administration', 6),
+(19, 'Surgical Technology', 6),
+(20, 'Therapeutic Massage Practitioner', 6),
+(21, 'Practical Nursing', 7),
+(22, 'Associate in Science, Nursing', 7),
+(23, 'Computer Programming', 8),
+(24, 'Information Technology', 8),
+(25, 'Network Administration', 8),
+(26, 'Network Security & Computer Forensics', 8),
+(27, 'Electronics Engineering Technology', 9),
+(28, 'Oil & Gas Electronics', 9),
+(29, 'Smart Building Technology', 9);
 
-CREATE TABLE student_table (
-  stud_id int PRIMARY KEY auto_increment NOT NULL,
-  prog_id INT NOT NULL,
-  stud_name varchar(75),
-  image varchar(100),
-  quarter enum('1st','2nd','3rd','4th','5th','6th','7th','8th'),
-  description text,
-  award enum('Nominee','Winner','Honorable Mention'),
-  FOREIGN KEY (prog_id) REFERENCES program_table(prog_id)
-) ENGINE=InnoDB, AUTO_INCREMENT=1;
+CREATE TABLE IF NOT EXISTS `school_table` (
+  `school_id` int(11) NOT NULL AUTO_INCREMENT,
+  `school_name` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`school_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
-INSERT INTO student_table
-	(stud_id, prog_id, stud_name, image, quarter, description, award)
-	VALUES 
-	(null,15,'Dennis Cupp','default-male.jpg', '4th', 'I''m Freaking Awesome!','Winner'),
-	(null,6,'Suzzie Que','default-female.jpg', '1st', 'I''m Less Awesome than Dennis!','Nominee'),
-    (null,11,'Jimmy James','default-male.jpg','5th','I tried my best!','Honorable Mention');
+INSERT INTO `school_table` (`school_id`, `school_name`) VALUES
+(1, 'Trades Technology'),
+(2, 'Business'),
+(3, 'Criminal Justice'),
+(4, 'Hospitality and Culinary Arts'),
+(5, 'Design'),
+(6, 'Healthcare'),
+(7, 'Nursing'),
+(8, 'Information Technology'),
+(9, 'Energy and Electronics Technology');
 
-CREATE TABLE service_table (
-	serv_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	stud_id INT NOT NULL,
-	service_desc text,
-	FOREIGN KEY (stud_id) REFERENCES student_table(stud_id)
-);
+CREATE TABLE IF NOT EXISTS `service_table` (
+  `serv_id` int(11) NOT NULL AUTO_INCREMENT,
+  `stud_id` int(11) NOT NULL,
+  `service_desc` text,
+  PRIMARY KEY (`serv_id`),
+  KEY `stud_id` (`stud_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
-INSERT INTO service_table
-	(serv_id, stud_id, service_desc)
-	VALUES
-	(null, 1, 'Sample Description #1'),
-	(null, 1, 'Sample Description #2'),
-	(null, 1, 'Sample Description #3'),
-	(null, 2, 'Sample Description #1');
+CREATE TABLE IF NOT EXISTS `student_table` (
+  `stud_id` int(11) NOT NULL AUTO_INCREMENT,
+  `prog_id` int(11) NOT NULL,
+  `stud_name` varchar(75) DEFAULT NULL,
+  `gender` enum('Male','Female') DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `quarter` varchar(5) DEFAULT NULL,
+  `description` text,
+  `award` enum('Nominee','Award Recipient','Honorable Mention') DEFAULT NULL,
+  PRIMARY KEY (`stud_id`),
+  KEY `prog_id` (`prog_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
-/* SHOW TABLES ROWS */
-SHOW TABLES;
 
-/* SHOW DATA */
-SELECT * FROM student_table;
-SELECT * FROM service_table;
-SELECT * FROM program_table;
-SELECT * FROM school_table;
+ALTER TABLE `program_table`
+  ADD CONSTRAINT `program_table_ibfk_1` FOREIGN KEY (`school_id`) REFERENCES `school_table` (`school_id`);
 
-SELECT stud.stud_name, stud.image, stud.quarter, prog.prog_name, school.school_name, stud.description, stud.award
-FROM student_table AS stud
-INNER JOIN program_table AS prog
-ON stud.prog_id = prog.prog_id
-INNER JOIN school_table AS school
-ON prog.school_id = school.school_id;
+ALTER TABLE `service_table`
+  ADD CONSTRAINT `service_table_ibfk_1` FOREIGN KEY (`stud_id`) REFERENCES `student_table` (`stud_id`);
 
-SELECT stud.stud_name, serve.service_desc
-FROM service_table AS serve
-INNER JOIN student_table AS stud
-ON stud.stud_id = serve.stud_id
-WHERE serve.stud_id = 1;
+ALTER TABLE `student_table`
+  ADD CONSTRAINT `student_table_ibfk_1` FOREIGN KEY (`prog_id`) REFERENCES `program_table` (`prog_id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

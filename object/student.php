@@ -29,11 +29,16 @@ class Student {
     /**
      * the create method makes a new row
      */
-     function create(){
+     function create($stud_gender){
         //if the image field is empty
         if(empty($_FILES['image']['name'])){
-            //set new image filename to the default jpg
+            if($stud_gender=='Male'){
+            //set new image filename to the default jpg for male
             $new_image_filename = 'default-male.jpg';
+            }else{
+            //set new image filename to the default jpg for female
+            $new_image_filename = 'default-female.jpg';
+            }
         }else{//if the user selected an image to use
             //give the new image a name
             $new_image_filename = $this->image['name'];
@@ -42,17 +47,18 @@ class Student {
         }
          
         $query = 'INSERT INTO '.$this->table_name.'
-            (stud_id, stud_name, prog_id, quarter, award, description, image)
+            (stud_id, stud_name, gender, prog_id, quarter, award, description, image)
             VALUES
-            (null,  ?,  ?,  ?,  ?,  ?, ?)';
+            (null,  ?,  ?,  ?,  ?,  ?, ?, ?)';
         $stmt = $this->conn->prepare($query);
         //fill each question mark with a value the user typed (we stored in property)
         $stmt->bindParam(1,$this->stud_name);
-        $stmt->bindParam(2,$this->prog_id);
-        $stmt->bindParam(3,$this->quarter);
-        $stmt->bindParam(4,$this->award);
-		$stmt->bindParam(5,$this->description);
-        $stmt->bindParam(6,$new_image_filename);
+        $stmt->bindParam(2,$this->gender);
+        $stmt->bindParam(3,$this->prog_id);
+        $stmt->bindParam(4,$this->quarter);
+        $stmt->bindParam(5,$this->award);
+		$stmt->bindParam(6,$this->description);
+        $stmt->bindParam(7,$new_image_filename);
          
         //try running the query. If it works...
 		if($stmt->execute()){
@@ -62,6 +68,7 @@ class Student {
 			return false;
 	 	}     
      }
+    
     /**
      * the update method updates all fields of the selected student record
      */
@@ -69,7 +76,7 @@ class Student {
         //if the image field is empty
         if(empty($_FILES['image']['name'])){
             //set new image filename to the default jpg
-            $new_image_filename = 'default-male.png';
+            $new_image_filename = 'Default.png';
         }else{//if the user selected an image to use
             //give the new image a name
             $new_image_filename = $this->image['name'];
@@ -91,7 +98,7 @@ class Student {
         $u_stmt->execute();
         return $u_stmt;
      }
-    //This creates a function 'delete'
+      //This creates a function 'delete'
 		function delete(){
 		//sets a query to equal a sql delete cmd which targets a products Unique Id in that table
 		$query= 'DELETE FROM '.$this->table_name.' WHERE stud_id=	?';
@@ -107,7 +114,7 @@ class Student {
 		}
 	}
     /**
-     * the displayStudents method display all students
+     * the displayStudentAward method display all students
      */
      function displayStudentAward($award){
          $query = 'SELECT stud.stud_id, stud.stud_name, stud.image, school.school_name, p.prog_name, stud.quarter, stud.award, stud.description FROM student_table AS stud INNER JOIN program_table AS p ON stud.prog_id = p.prog_id INNER JOIN school_table AS school ON p.school_id = school.school_id WHERE award = "'.$award.'"';
@@ -115,6 +122,7 @@ class Student {
          $stmt->execute();
          return $stmt;
      }
+    
     /**
      * the displayStudentInfo method displays a specific student's information
      */
@@ -143,6 +151,4 @@ class Student {
          }     
      }
 }
-
-	
 ?>

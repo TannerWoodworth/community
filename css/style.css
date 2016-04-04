@@ -12,6 +12,18 @@ h1{
 h2{
     color:#222;
 }
+fieldset{
+    max-width: 530px;
+    margin: .5em auto;
+    padding: .5em 1%;
+    font-family: 'Lato', sans-serif;
+}
+fieldset legend{
+    color:#c22;
+}
+input[type="text"]{
+    margin-bottom: 1px;
+}
 .content_div{
     width:96%;
     padding: 0 2%;
@@ -23,6 +35,25 @@ h2{
     width:100%;
     float:none;
     margin-bottom: 1rem;
+}
+.msg-container{
+    padding: .75em 0;
+    
+}
+.msg-container-add{
+    width:96%;
+    padding: .75em 0;
+    margin: 0 auto;
+    max-width:536px;
+}
+.danger{
+    color: #c22;
+}
+.success{
+    color: #000;
+}
+.answer-text{
+    margin-bottom: 20px;
 }
 /*=========== TYPOGRAPHY ===========*/
 p{
@@ -80,6 +111,15 @@ a:active{
 }
 .s_program{
     padding-bottom: 2%;
+}
+.s_school{
+    padding-bottom: 2%;
+}
+.display-text{
+    color:#000;
+}
+.award-page{
+    text-decoration: underline;
 }
 /*============= CLASSES ============*/
 @media screen and (min-width:450px) {
